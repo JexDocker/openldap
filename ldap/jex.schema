@@ -1,0 +1,37 @@
+attributetype ( 1.1.2.1.1 NAME 'dn'
+                DESC 'dn of Permission-CommonCompany'
+                EQUALITY caseIgnoreMatch
+                SUBSTR caseIgnoreSubstringsMatch
+                SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+                SINGLE-VALUE )
+attributetype ( 1.1.2.1.2 NAME 'companyno'
+                DESC 'companyno of Permission-CommonCompany'
+                EQUALITY caseIgnoreMatch
+                SUBSTR caseIgnoreSubstringsMatch
+                SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+                SINGLE-VALUE )
+attributetype ( 1.1.2.1.3 NAME 'companyname'
+                DESC 'companyname of Permission-CommonCompany'
+                EQUALITY caseIgnoreMatch
+                SUBSTR caseIgnoreSubstringsMatch
+                SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+                SINGLE-VALUE )
+attributetype ( 1.1.2.1.4 NAME 'parentcompanyno'
+                DESC 'parentcompanyno of Permission-CommonCompany'
+                EQUALITY caseIgnoreMatch
+                SUBSTR caseIgnoreSubstringsMatch
+                SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+                SINGLE-VALUE )
+attributetype ( 1.1.2.1.5 NAME 'loginname'
+                DESC 'loginname of Permission-CommonOperator'
+                EQUALITY caseIgnoreMatch
+                SUBSTR caseIgnoreSubstringsMatch
+                SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+                SINGLE-VALUE )
+
+objectclass ( 1.1.2.2.1 NAME 'commonCompany'
+	DESC 'Permission-CommonCompany'
+	SUP dcObject
+	STRUCTURAL
+	MUST ( companyno $ companyname $ parentcompanyno )
+	MAY dn )

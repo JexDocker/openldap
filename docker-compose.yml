@@ -1,0 +1,16 @@
+version: '2'
+services:
+  openldap:
+#    image: accenture/adop-ldap:0.2.0
+    build: .
+    container_name: openldap
+    command: slapd -d 32768 -u openldap -g openldap -f /ldap/slapd.conf
+    ports:
+      - "389:389"
+    environment:
+      - INITIAL_ADMIN_USER: admin
+      - INITIAL_ADMIN_PASSWORD: "112233"
+      - SLAPD_DOMAIN: "example.com"
+      - SLAPD_PASSWORD: "112233"
+    volumes:
+      - /dockerData/ldap : /ldap
